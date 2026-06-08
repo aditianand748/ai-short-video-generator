@@ -3,7 +3,7 @@ import type { Project } from "../types"
 import { ImageIcon, Loader2Icon, RefreshCwIcon, SparkleIcon, VideoIcon } from "lucide-react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { GhostButton, PrimaryButton } from "../components/Buttons"
-import { useUser } from "@clerk/clerk-react"
+import { useUser, useAuth } from "@clerk/clerk-react"
 import api from "../configs/axios"
 import toast from "react-hot-toast"
 
@@ -27,7 +27,7 @@ const Result = () => {
       setProjectData(data.project)
       setIsGenerating(data.project.isGenerating)
       setLoading(false)
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error?.response?.data?.message || error.message);
       console.log(error);
     }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import type { Project } from "../types"
-
+import { useAuth, useUser } from "@clerk/clerk-react"
 import { Loader2Icon } from "lucide-react"
 import ProjectCard from "../components/ProjectCard"
 import { PrimaryButton } from "../components/Buttons"

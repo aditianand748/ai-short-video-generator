@@ -3,7 +3,7 @@ import Title from "../components/Title"
 import UploadZone from "../components/UploadZone"
 import { Loader2Icon, RectangleHorizontalIcon, RectangleVerticalIcon, Wand2Icon } from "lucide-react"
 import { PrimaryButton } from "../components/Buttons"
-import { useAuth } from "@clerk/clerk-react"
+import { useAuth, useUser } from "@clerk/clerk-react"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import api from "../configs/axios"
@@ -23,7 +23,7 @@ const Generator = () => {
     const [productImage, setProductImage] = useState<File | null>(null)
     const [modelImage, setModelImage] = useState<File | null>(null)
     const [userPrompt, setUserPrompt] = useState('')
-    const [isGenerating, setIsGenerating] = useState()
+    const [isGenerating, setIsGenerating] = useState(false)
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, type:
         'product' | 'model') => {
